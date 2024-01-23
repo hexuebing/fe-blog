@@ -1,5 +1,6 @@
 ---
 icon: array
+cover: /assets/images/quicksort.png
 date: 2022-01-21
 category:
   - 算法
@@ -16,6 +17,10 @@ sticky: true
 
 - 基线条件——为空或只包含一个元素，就不需要排序
 - 使用分治让其满足基线条件，取一个基准值将数组分为三部分，对两边数组继续治理
+
+## 举例说明
+
+![例子](/fe-blog/assets/images/quicksort.png)
 
 ## 代码实现
 
