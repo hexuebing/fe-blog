@@ -1,5 +1,5 @@
 ---
-icon: circle-info
+icon: anonymous
 cover: /assets/images/cover3.jpg
 ---
 

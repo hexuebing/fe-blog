@@ -1,7 +1,7 @@
 ---
-title: 主要功能与配置演示
+title: 使用指南
 index: false
-icon: laptop-code
+icon: tool
 category:
   - 使用指南
 ---

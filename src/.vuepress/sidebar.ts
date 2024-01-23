@@ -5,14 +5,14 @@ export default sidebar({
     "",
     {
       text: "如何使用",
-      icon: "laptop-code",
+      icon: "tool",
       prefix: "demo/",
       link: "demo/",
       children: "structure",
     },
     {
       text: "文章",
-      icon: "book",
+      icon: "blog",
       prefix: "posts/",
       children: "structure",
     },
