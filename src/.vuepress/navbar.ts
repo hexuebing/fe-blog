@@ -17,6 +17,7 @@ export default navbar([
           "quicksort",
           "fib",
           "coins",
+          "invertTree"
         ],
       },
       {
