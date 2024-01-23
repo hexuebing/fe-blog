@@ -20,7 +20,7 @@ export default hopeTheme({
   docsDir: "src",
 
   // 导航栏
-  navbar,
+  // navbar,
 
   // 侧边栏
   sidebar,
