@@ -20,19 +20,14 @@ export default navbar([
         ],
       },
       {
-        text: "香蕉",
-        icon: "pen-to-square",
-        prefix: "banana/",
+        text: "小程序",
+        icon: "mini-app",
+        prefix: "miniApp/",
         children: [
           {
-            text: "香蕉 1",
-            icon: "pen-to-square",
-            link: "1",
-          },
-          {
-            text: "香蕉 2",
-            icon: "pen-to-square",
-            link: "2",
+            text: "保存到通讯录",
+            icon: "profile",
+            link: "contact",
           },
           // "3",
           // "4",
