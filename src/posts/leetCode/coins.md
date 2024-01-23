@@ -1,6 +1,5 @@
 ---
 icon: free
-cover: /assets/images/coins.png
 date: 2022-01-01
 category:
   - 算法
@@ -51,7 +50,7 @@ var coinChange = function(coins, amount) {
 ## 增加备忘录
 解决重复问题
 
-![Untitled](/assets/images/coins.png)
+![Untitled](./images/coins.png)
 
 ```jsx
 /**

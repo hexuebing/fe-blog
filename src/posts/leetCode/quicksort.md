@@ -1,6 +1,5 @@
 ---
 icon: array
-cover: /assets/images/quicksort.png
 date: 2022-01-21
 category:
   - 算法
@@ -20,7 +19,7 @@ sticky: true
 
 ## 举例说明
 
-![例子](/assets/images/quicksort.png)
+![例子](./images/quicksort.png)
 
 ## 代码实现
 

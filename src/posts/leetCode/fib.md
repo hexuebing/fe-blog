@@ -1,6 +1,5 @@
 ---
 icon: structure
-cover: /assets/images/fib2.png
 date: 2022-01-01
 category:
   - 算法
@@ -23,7 +22,7 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 
 首先画出递归树
 
-![Untitled](/assets/images/fib1.png)
+![Untitled](./images/fib1.png)
 
 ## 自顶向下
 
@@ -48,7 +47,7 @@ var fib = function(n) {
 
 ## 自底向上
 
-![Untitled](/assets/images/fib2.png)
+![Untitled](./images/fib2.png)
 
 ```jsx
 /**
@@ -64,6 +63,6 @@ var fib = function(n) {
 };
 ```
 
-![Untitled](/assets/images/fib3.png)
+![Untitled](./images/fib3.png)
 
 可以考虑状态压缩，只存两个数据
