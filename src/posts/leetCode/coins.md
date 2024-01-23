@@ -51,7 +51,7 @@ var coinChange = function(coins, amount) {
 ## 增加备忘录
 解决重复问题
 
-![Untitled](/fe-blog/assets/images/coins.png)
+![Untitled](/assets/images/coins.png)
 
 ```jsx
 /**

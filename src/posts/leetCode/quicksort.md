@@ -20,7 +20,7 @@ sticky: true
 
 ## 举例说明
 
-![例子](/fe-blog/assets/images/quicksort.png)
+![例子](/assets/images/quicksort.png)
 
 ## 代码实现
 

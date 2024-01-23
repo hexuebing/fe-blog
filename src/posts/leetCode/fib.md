@@ -23,7 +23,7 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 
 首先画出递归树
 
-![Untitled](/fe-blog/assets/images/fib1.png)
+![Untitled](/assets/images/fib1.png)
 
 ## 自顶向下
 
@@ -48,7 +48,7 @@ var fib = function(n) {
 
 ## 自底向上
 
-![Untitled](/fe-blog/assets/images/fib2.png)
+![Untitled](/assets/images/fib2.png)
 
 ```jsx
 /**
@@ -64,6 +64,6 @@ var fib = function(n) {
 };
 ```
 
-![Untitled](/fe-blog/assets/images/fib3.png)
+![Untitled](/assets/images/fib3.png)
 
 可以考虑状态压缩，只存两个数据
