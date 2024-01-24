@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as c,c as o}from"./app-uy49SnQi.js";const r={};function t(_,n){return c(),o("div")}const a=e(r,[["render",t],["__file","buildTree copy 2.html.vue"]]);export{a as default};
