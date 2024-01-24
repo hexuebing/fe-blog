@@ -1,0 +1,17 @@
+{
+  "Print to console": {
+    "scope": "md,markdown",
+    "prefix": "info",
+    "body": [
+      "---",
+			"icon: ability",
+			"date: ${new Date()}",
+			"category: ",
+			"tag:",
+      "start: true"
+      "sticky: true"
+			"---",
+    ],
+    "description": "文章基础信息"
+  }
+}

@@ -30,7 +30,8 @@ export default navbar([
           "minPath",
           "rob",
           "rob1",
-          "rob2"
+          "rob2",
+          "permutation"
         ],
       },
       {
@@ -47,8 +48,14 @@ export default navbar([
           // "4",
         ],
       },
-      // { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-      // { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
+      {
+        text: "其他",
+        icon: "linter",
+        prefix: "other/",
+        children: [
+          "git", "codeSplitting"
+        ]
+      }
       // "strawberry",
     ],
   },

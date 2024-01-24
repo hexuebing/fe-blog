@@ -1,0 +1,195 @@
+---
+icon: overflow
+date: 2022-01-21
+category:
+  - 打包工具
+tag:
+  - webpack
+star: true
+sticky: true
+---
+# 代码分割
+
+代码分离是webpack最引人注目的特性之一。此特性能够把代码分离到不同的 `bundle` 中，然后可以按需加载或并行加载这些文件。
+
+常用的方法：
+
+- 入口起点：使用 entry 配置实现分离
+- 防止重复：使用 [Entry dependencies](https://webpack.docschina.org/configuration/entry-context/#dependencies) 或者 [SplitChunksPlugin](https://webpack.docschina.org/plugins/split-chunks-plugin) 去重和分离 chunk
+- 动态导入：通过模块内联函数调用来分离
+
+## 入口起点
+
+最简单直观的代码分离方式
+
+```jsx
+const path = require('path');
+
+ module.exports = {
+  // entry: './src/index.js',
+  mode: 'development',
+  entry: {
+    index: './src/index.js',
+    another: './src/another-module.js',
+  },
+   output: {
+    // filename: 'main.js',
+    filename: '[name].bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+ };
+```
+
+构建结果
+
+```jsx
+...
+[webpack-cli] Compilation finished
+asset index.bundle.js 553 KiB [emitted] (name: index)
+asset another.bundle.js 553 KiB [emitted] (name: another)
+runtime modules 2.49 KiB 12 modules
+cacheable modules 530 KiB
+  ./src/index.js 257 bytes [built] [code generated]
+  ./src/another-module.js 84 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 530 KiB [built] [code generated]
+webpack 5.4.0 compiled successfully in 245 ms
+```
+
+存在的问题：
+
+- 如果入口chunk之间存在重复模块，重复模块将被引入到各个bundle中
+- 不灵活，不能动态将逻辑代码拆分出来
+
+## 防止重复(prevent duplication)
+
+### 入口依赖
+
+配置 dependOn options 选项，实现多chunk间共享模块
+
+```jsx
+const path = require('path');
+
+ module.exports = {
+   mode: 'development',
+   entry: {
+    // index: './src/index.js',
+    // another: './src/another-module.js',
+    index: {
+      import: './src/index.js',
+      dependOn: 'shared',
+    },
+    another: {
+      import: './src/another-module.js',
+      dependOn: 'shared',
+    },
+    shared: 'lodash',
+   },
+   output: {
+     filename: '[name].bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+	 optimization: {
+     runtimeChunk: 'single',
+   },
+ };
+```
+
+构建结果：
+
+```jsx
+...
+[webpack-cli] Compilation finished
+asset shared.bundle.js 549 KiB [compared for emit] (name: shared)
+asset runtime.bundle.js 7.79 KiB [compared for emit] (name: runtime)
+asset index.bundle.js 1.77 KiB [compared for emit] (name: index)
+asset another.bundle.js 1.65 KiB [compared for emit] (name: another)
+Entrypoint index 1.77 KiB = index.bundle.js
+Entrypoint another 1.65 KiB = another.bundle.js
+Entrypoint shared 557 KiB = runtime.bundle.js 7.79 KiB shared.bundle.js 549 KiB
+runtime modules 3.76 KiB 7 modules
+cacheable modules 530 KiB
+  ./node_modules/lodash/lodash.js 530 KiB [built] [code generated]
+  ./src/another-module.js 84 bytes [built] [code generated]
+  ./src/index.js 257 bytes [built] [code generated]
+webpack 5.4.0 compiled successfully in 249 ms
+```
+
+### SplitChunksPlugin
+
+`SplitChunksPlugin` 插件可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk。
+
+```jsx
+const path = require('path');
+
+  module.exports = {
+    mode: 'development',
+    entry: {
+      index: './src/index.js',
+      another: './src/another-module.js',
+    },
+    output: {
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+   optimization: {
+     splitChunks: {
+       chunks: 'all',
+     },
+   },
+  };
+```
+
+插件将 lodash 分离到单独的 chunk，并且将其从 main bundle 中移除，减轻了大小。
+
+```jsx
+...
+[webpack-cli] Compilation finished
+asset vendors-node_modules_lodash_lodash_js.bundle.js 549 KiB [compared for emit] (id hint: vendors)
+asset index.bundle.js 8.92 KiB [compared for emit] (name: index)
+asset another.bundle.js 8.8 KiB [compared for emit] (name: another)
+Entrypoint index 558 KiB = vendors-node_modules_lodash_lodash_js.bundle.js 549 KiB index.bundle.js 8.92 KiB
+Entrypoint another 558 KiB = vendors-node_modules_lodash_lodash_js.bundle.js 549 KiB another.bundle.js 8.8 KiB
+runtime modules 7.64 KiB 14 modules
+cacheable modules 530 KiB
+  ./src/index.js 257 bytes [built] [code generated]
+  ./src/another-module.js 84 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 530 KiB [built] [code generated]
+webpack 5.4.0 compiled successfully in 241 ms
+```
+
+## 动态导入
+
+动态代码拆分，webpack 提供了两个类似的技术：
+
+- 使用符合 ECMAScript 提案 的 import() 语法 来实现动态导入 （推荐方式）
+- 使用 webpack 特定的 require.ensure
+
+我们不再使用 statically import(静态导入) lodash，而是通过 dynamic import(动态导入) 来分离出一个 chunk
+
+```jsx
+async function getComponent() {
+  const element = document.createElement('div');
+  const { default: _ } = await import('lodash');
+
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  return element;
+ }
+
+ getComponent().then((component) => {
+   document.body.appendChild(component);
+ });
+```
+
+lodash 已经被分离到一个单独的 bundle：
+
+```jsx
+...
+[webpack-cli] Compilation finished
+asset vendors-node_modules_lodash_lodash_js.bundle.js 549 KiB [compared for emit] (id hint: vendors)
+asset index.bundle.js 13.5 KiB [compared for emit] (name: index)
+runtime modules 7.37 KiB 11 modules
+cacheable modules 530 KiB
+  ./src/index.js 434 bytes [built] [code generated]
+  ./node_modules/lodash/lodash.js 530 KiB [built] [code generated]
+webpack 5.4.0 compiled successfully in 268 ms
+```
