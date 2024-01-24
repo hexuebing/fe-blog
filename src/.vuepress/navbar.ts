@@ -26,7 +26,11 @@ export default navbar([
           "maxTree",
           "threeSum",
           "twoSum",
-          "uniqueArray"
+          "uniqueArray",
+          "minPath",
+          "rob",
+          "rob1",
+          "rob2"
         ],
       },
       {
