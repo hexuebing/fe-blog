@@ -14,13 +14,19 @@ export default navbar([
         prefix: "leetCode/",
         children: [
           // { text: "苹果1", icon: "pen-to-square", link: "1" },
-          "quicksort",
+          "arraySort",
           "fib",
           "coins",// 零钱问题
           "invertTree", // 反转二叉树
           "flatten", // 二叉树展开为列表
           "connectNode", // 二叉树节点指向右侧节点
           "maxTree", // 最大二叉树
+          "buildTree",
+          "findSubtree",
+          "maxTree",
+          "threeSum",
+          "twoSum",
+          "uniqueArray"
         ],
       },
       {
