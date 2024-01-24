@@ -9,6 +9,12 @@ export default navbar([
     prefix: "/posts/",
     children: [
       {
+        text: "JS",
+        icon: "javascript",
+        prefix: "JavaScript/",
+        children: ["curry", "changeThis","deepClone","newkey"]
+      },
+      {
         text: "算法",
         icon: "pen-to-square",
         prefix: "leetCode/",
