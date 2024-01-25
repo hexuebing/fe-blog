@@ -4,8 +4,7 @@ date: 2022-01-16
 category:
   - JavaScript
 tag:
-  - 防抖
-	- 节流
+  - 防抖节流
 star: true
 sticky: true
 ---
