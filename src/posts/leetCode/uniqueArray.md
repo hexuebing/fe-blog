@@ -68,7 +68,7 @@ function unique(nums){
 ```
 # 基础数组去重
 
-## 最简单
+## filter去重
 
 ```jsx
 [1,2,3,2].filter((item, index, arr) => arr.indexOf(item) === index)
@@ -84,6 +84,45 @@ arr.forEach(item => {
 })
 ```
 
+### reduce
+```jsx
+[1,2,1,2,3,3].reduce((acc, cur) => {
+	if(acc.indexOf(cur) === -1){
+		acc.push(cur)
+	}
+	return acc
+}, [])
+```
+
+## Set去重
+```jsx
+Array.from(new Set([1,1,2,3,3]))
+```
+
+## Map去重
+
+```jsx
+// map中已经有的直接返回false，没有的利用set方法返回的是map本身 ，可以被转为true的特性
+function unique(arr){
+	const m = new Map()
+	return arr.filter(item => !m.has(item) && m.set(item, 1))
+}
+```
+
+```jsx
+function unique(arr){
+	const result = []
+	const m = new Map()
+	arr.forEach((item) => {
+		if(!m.has(item)){
+			m.set(item, 1)
+			result.push(item)
+		}
+	})
+	return result
+}
+```
+
 ## 排序相邻
 
 ```jsx
@@ -95,3 +134,57 @@ for(let i = 1; i <= sortArr.length; i++){
 ```
 
 https://juejin.cn/post/6844903602197102605
+
+# Object对象去重
+
+去除name相同的对象
+
+```jsx
+let arr = [
+	{key: 1, name: 'aa'},
+	{key: 2, name: 'aa'},
+	{key: 3, name: 'bb'}
+]
+```
+
+## reduce去重
+
+```jsx
+function uniqueObj(arr){
+	const obj = {}
+	arr.reduce((acc, cur) => {
+		if(!obj[cur.name]){
+			acc.push(cur)
+			obj[cur.name] = true
+		}
+		return acc
+	}, [])
+}
+```
+
+## Map去重
+
+```jsx
+function uniqueObj(arr){
+	const m = new Map()
+	arr.forEach(item => {
+		if(!m.has(item.name)){
+			m.set(item.name, item)
+		}
+	})
+	return [...m.values()]
+}
+```
+
+## 双循环去重
+
+```jsx
+function uniqueObj(arr){
+	const result = []
+	arr.forEach(item => {
+		const hasPush = result.some(x => x.name === item.name)
+		if(!hasPush) result.push(item)
+	})
+	return result
+}
+```
