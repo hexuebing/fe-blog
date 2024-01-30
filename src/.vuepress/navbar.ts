@@ -9,6 +9,12 @@ export default navbar([
     prefix: "/posts/",
     children: [
       {
+        text: "vue",
+        icon: "vue",
+        prefix: "Vue/",
+        children: []
+      },
+      {
         text: "JS",
         icon: "javascript",
         prefix: "JavaScript/",
