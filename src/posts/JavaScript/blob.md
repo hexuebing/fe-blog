@@ -15,24 +15,24 @@ sticky: true
 
 不可变的，类似文件对象的原始数据
 
-```jsx
+```js
 const blob = new Blob(blobParts, options)
 ```
 
 1. `blobParts`: 可以是`Blob`、`ArrayBuffer`、`ArrayBufferView`、`DOMString`（会被编码）等构成的数组
-2. `options`：{[ type, [ending] ]}
+2. `options`：`{[ type, [ending] ]}`
     - `type`默认为“”，是内容的MIME类型。
     - `ending`默认为“transparent”，用于指定包含`\n` 字符串如何写入。
 
 例如：
 
-```jsx
+```js
 // 从字符串创建 Blob
 let blob = new Blob(["<html>…</html>"], {type: 'text/html'});
 // 请注意：第一个参数必须是一个数组 [...]
 ```
 
-```jsx
+```js
 // 从类型化数组（typed array）和字符串创建 Blob
 let hello = new Uint8Array([72, 101, 108, 108, 111]); // 二进制格式的 "hello"
 
@@ -41,14 +41,11 @@ let blob = new Blob([hello, ' ', 'world'], {type: 'text/plain'});
 
 ## 提取`blob`片段
 
-```jsx
+```js
 blob.slice([byteStart], [byteEnd], [contentType]);
 ```
 
-<aside>
 💡 Blob 对象不可改变
-
-</aside>
 
 这种行为类似于 JavaScript 字符串：
 
@@ -58,7 +55,7 @@ blob.slice([byteStart], [byteEnd], [contentType]);
 
 文件下载：
 
-```jsx
+```js
 <!-- download 特性（attribute）强制浏览器下载而不是导航 -->
 <a download="hello.txt" href='#' id="link">Download</a>
 
@@ -71,7 +68,7 @@ link.href = URL.createObjectURL(blob);
 
 在 Javascript 中动态创建一个链接，通过 link.click() 模拟一个点击，然后便自动下载了
 
-```jsx
+```js
 let link = document.createElement('a');
 link.download = 'hello.txt';
 
@@ -86,7 +83,7 @@ URL.revokeObjectURL(link.href);
 
 `URL.createObjectURL` 传入一个 `Blob`，并为其创建一个唯一的 URL，形式为 `blob:<origin>/<uuid>`
 
-```jsx
+```js
 blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 ```
 
@@ -96,7 +93,7 @@ blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 
 `base64`这种编码将**二进制数据**表示为一个**由 0 到 64 的 ASCII 码**组成的字符串，非常安全且“可读“
 
-```jsx
+```js
 let link = document.createElement('a');
 link.download = 'hello.txt';
 
@@ -111,10 +108,7 @@ reader.onload = function() {
 };
 ```
 
-<aside>
 💡 对大的 Blob 进行编码时，性能和内存会有损耗
-
-</aside>
 
 ## Image 转为 blob
 
@@ -123,7 +117,7 @@ reader.onload = function() {
 1. `canvas.drawImage` 绘制图像
 2. `canvas.toBlob()` 创建一个blob
 
-```jsx
+```js
 // 获取任何图像
 let img = document.querySelector('img');
 
@@ -154,7 +148,7 @@ canvas.toBlob(function(blob) {
 
 不喜欢callback，可以这么改写
 
-```jsx
+```js
 let blob = new Promise(reslove => canvas.toBlob(reslove, 'image/png'))
 ```
 
@@ -164,7 +158,7 @@ let blob = new Promise(reslove => canvas.toBlob(reslove, 'image/png'))
 
 如果需要执行低级别的操作，则可使用 `FileReader` 从 `blob` 中获取最低级别的 `ArrayBuffer`
 
-```jsx
+```js
 // 从 blob 获取 arrayBuffer
 let fileReader = new FileReader();
 
