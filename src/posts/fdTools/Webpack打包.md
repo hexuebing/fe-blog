@@ -19,6 +19,8 @@
 
 让 Webpack 能够去处理那些非 JavaScript 文件
 
+编写Loader时要遵循单一原则，每个Loader只做一种"转义"工作。 每个Loader的拿到的是源文件内容（source），可以通过返回值的方式将处理后的内容输出，也可以调用`this.callback()`方法，将内容返回给webpack。 还可以通过 `this.async()`生成一个`callback`函数，再用这个callback将处理后的内容输出出去。 此外webpack还为开发者准备了开发loader的工具函数集——`loader-utils`。
+
 ### 常见Loder
 
 ```js
@@ -38,6 +40,8 @@ postcss-loader：用于在CSS中自动添加浏览器前缀，以确保CSS样式
 ## Plugin
 
 plugin 会运行在 webpack 的不同阶段，贯穿整个编译周期，目的在于解决 loader 无法实现的其他事。
+
+相对于Loader而言，Plugin的编写就灵活了许多。 webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
 
 ### 常见Plugin
 
