@@ -1,3 +1,9 @@
+---
+icon: array
+tag: 
+ - 滑动窗口
+---
+
 # 最大连续1的个数III之反转K个0
 
 给定一个二进制数组 nums 和一个整数 k，如果可以翻转最多 k 个 0 ，则返回 数组中连续 1 的最大个数 。
@@ -21,9 +27,9 @@ var longestOnes = function(nums, k) {
         if(rightCode === 0) count++
 
         while(count > k){
-            left++
             const leftCode = nums[left]
             if(leftCode === 0) count--
+            left++
         }
         res = Math.max(res, right - left + 1)
         right++
