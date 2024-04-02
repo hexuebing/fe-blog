@@ -34,7 +34,34 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 });
 ```
 
-## 防止频繁触发 Effect
+## useCallback中更新state,减少依赖
+
+```jsx
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = useCallback((text) => {
+    const newTodo = { id: nextId++, text };
+    setTodos([...todos, newTodo]);
+  }, [todos]);
+  // ...
+}
+```
+期望记忆化函数具有尽可能少的依赖，当你读取 state 只是为了计算下一个 state 时，你可以通过传递 **updater function** 以移除该依赖
+
+```jsx
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = useCallback((text) => {
+    const newTodo = { id: nextId++, text };
+    setTodos(todos => [...todos, newTodo]);
+  }, []); // ✅ 不需要 todos 依赖项
+  // ...
+}
+```
+
+## Effect内部调用函数，频繁触发执行
 
 有时，你想要在 Effect 内部**调用函数**
 
