@@ -1,5 +1,7 @@
 # vue-cli新建项目打不开编辑器
 
+[vue-devtools国内插件市场](https://chrome.zzzmh.cn/info/nhdogjmejiglipccpnnnanhbledajbpd)
+
 ## 开箱即用--打开编辑器
 ![](./images/open-in-editor.png)
 
