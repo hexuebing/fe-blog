@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "d5a945b42f10d3e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "456b48020f3c5e8b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bcf0ea8b08b6ff9",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "未命名.base",
+                "viewName": "表格"
+              },
+              "icon": "lucide-table",
+              "title": "未命名"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0049a43003e611d4",
+    "type": "split",
+    "children": [
+      {
+        "id": "18bda77a576687e8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "01bde0cd3355c392",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5397fceb5420798c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "1e3d11750b6ef644",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5135c322b6c325eb",
+    "type": "split",
+    "children": [
+      {
+        "id": "e6a6d2276c6e80ce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "138196ed68a6fbbf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "fa0606735a80e7d9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "NODE 版本管理.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "NODE 版本管理 的出链列表"
+            }
+          },
+          {
+            "id": "73d4a255e3944cbd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "659bdb863918c944",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "3e79ebc86d2969f7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "NODE 版本管理.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "NODE 版本管理 的大纲"
+            }
+          },
+          {
+            "id": "137d26ea44038eb8",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "01bde0cd3355c392",
+  "lastOpenFiles": [
+    "未命名.base",
+    "算法笔记/哈希表",
+    "算法笔记/哈希表/49.字母异位词分组.md",
+    "算法笔记/字符串/14.最长公共前缀.md",
+    "算法笔记/字符串/12.整数转罗马数字.md",
+    "算法笔记/字符串/6.Z 字形变换.md",
+    "算法笔记/矩阵/37.解数独.md",
+    "算法笔记/矩阵/36.有效的数独.md",
+    "算法笔记/矩阵",
+    "算法笔记/数组/33.搜索旋转排序数组.md",
+    "算法笔记/数组/1.两数之和.md",
+    "算法笔记/链表/2.两数相加.md",
+    "算法笔记/链表/25.K 个一组翻转链表.md",
+    "算法笔记/数组",
+    "算法笔记/栈/71.简化路径.md",
+    "算法笔记/队列/225.用队列实现栈.md",
+    "算法笔记/链表",
+    "算法笔记/动态规划/322. 零钱兑换.md",
+    "算法笔记/动态规划/70.爬楼梯.md",
+    "算法笔记/动态规划/5.最长回文子串.md",
+    "算法笔记/动态规划/0-1 背包问题.md",
+    "算法笔记/堆/215.数组中的第K个最大元素 1.md",
+    "算法笔记/堆/215.数组中的第K个最大元素.md",
+    "算法笔记/数学/7.整数反转.md",
+    "算法笔记/图/133. 克隆图.md",
+    "算法笔记/图",
+    "算法笔记/字符串/344.反转字符串.md",
+    "算法笔记/二叉树/116. 填充每个节点的下一个右侧节点指针.md",
+    "算法笔记/二叉树/104. 二叉树的最大深度.md",
+    "算法笔记/二叉树/111. 二叉树的最小深度.md",
+    "算法笔记/广度优先搜索/102.二叉树的层序遍历 （广度优先遍历）.md",
+    "后端知识",
+    "算法笔记/数学",
+    "算法笔记/二叉树",
+    "算法笔记/字符串",
+    "算法笔记/队列"
+  ]
+}
